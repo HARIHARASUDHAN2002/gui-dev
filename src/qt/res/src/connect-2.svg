@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 92 92">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-5);
+        stroke: url(#linear-gradient-6);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-4, .cls-5 {
+        stroke-width: 4.44px;
+      }
+
+      .cls-2 {
+        stroke-width: 5.33px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+        stroke: #23202a;
+      }
+
+      .cls-3 {
+        stroke-width: 4.44px;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-3);
+        stroke: url(#linear-gradient-4);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="63.3" y1="20.19" x2="85.34" y2="20.19" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#cc202e"/>
+      <stop offset="1" stop-color="#741213"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="61.07" x2="87.56" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="6.66" y1="71.81" x2="28.7" y2="71.81" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="4.44" y1="71.81" x2="30.93" y2="71.81" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="35.29" y1="46.2" x2="57.33" y2="46.2" gradientTransform="translate(46.23 -19.21) rotate(45)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="33.07" y1="46.2" x2="59.55" y2="46.2" gradientTransform="translate(46.23 -19.21) rotate(45)" xlink:href="#linear-gradient"/>
+  </defs>
+  <path class="cls-2" d="M46.31,57.76v6.59c0,5.5-4.46,9.96-9.96,9.96h-8.38"/>
+  <path class="cls-2" d="M46.31,37.45v-9.58c0-4.81,3.9-8.72,8.72-8.72h8.32"/>
+  <circle class="cls-3" cx="18.73" cy="37.92" r="11.02" transform="translate(-21.33 24.35) rotate(-45)"/>
+  <circle class="cls-3" cx="74.32" cy="54.67" r="11.02"/>
+  <path class="cls-2" d="M27.97,34.47h19.8"/>
+  <path class="cls-2" d="M44.93,58.7h19.8"/>
+  <circle class="cls-4" cx="74.32" cy="20.19" r="11.02"/>
+  <circle class="cls-5" cx="17.68" cy="71.81" r="11.02"/>
+  <circle class="cls-1" cx="46.31" cy="46.2" r="11.02" transform="translate(-19.1 46.28) rotate(-45)"/>
+</svg>

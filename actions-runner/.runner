@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "linux",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus26.actions.githubusercontent.com/HEckbJTNsp3pzlnUfD6aL667w4m97lt2Z1RxHIxe1sXcjil0Ix/",
+  "gitHubUrl": "https://github.com/kirthana4323/gui-Dev-ci",
+  "workFolder": "_work"
+}
