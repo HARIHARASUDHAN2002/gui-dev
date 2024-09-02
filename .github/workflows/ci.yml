@@ -358,8 +358,9 @@ jobs:
         run: sed -i "s|\${INSTALL_BCC_TRACING_TOOLS}|true|g" ./ci/test/00_setup_env_native_asan.sh
 
       - name: CI script
-        run: chmod +x ./ci/test_run_all.sh
-        run: ./ci/test_run_all.sh
+        run: |
+          chmod +x ./ci/test_run_all.sh
+          ./ci/test_run_all.sh
 
       - name: Save Ccache cache
         uses: actions/cache/save@v4
