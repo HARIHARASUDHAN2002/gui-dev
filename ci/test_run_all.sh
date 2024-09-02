@@ -6,7 +6,12 @@
 
 export LC_ALL=C.UTF-8
 
-set -o errexit; source ./ci/test/00_setup_env.sh
 set -o errexit
-"sudo chmod -R 777 ./ci/test/02_run_container.sh",
-"./ci/test/02_run_container.sh"
+source ./ci/test/00_setup_env.sh
+set -o errexit
+
+# Make the script executable
+sudo chmod -R 777 ./ci/test/02_run_container.sh
+
+# Run the script
+./ci/test/02_run_container.sh
