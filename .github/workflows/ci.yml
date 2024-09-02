@@ -359,7 +359,7 @@ jobs:
 
       - name: CI script
         run: |
-          sudo chmod -R 777 ./ci/test_run_all.sh
+          sudo chmod -R 777 ./ci
           ./ci/test_run_all.sh
 
       - name: Save Ccache cache
