@@ -74,6 +74,7 @@ jobs:
           # Run tests on commits after the last merge commit and before the PR head commit
           # Use clang++, because it is a bit faster and uses less memory than g++
           #ifdef USE_SPHINCSPLUS  
+          chmod +x autogen.sh
           ./autogen.sh 
           CC=clang CXX=clang++ ./configure 
           ./configure --with-incompatible-bdb   
@@ -357,6 +358,7 @@ jobs:
         run: sed -i "s|\${INSTALL_BCC_TRACING_TOOLS}|true|g" ./ci/test/00_setup_env_native_asan.sh
 
       - name: CI script
+        run: chmod +x ./ci/test_run_all.sh
         run: ./ci/test_run_all.sh
 
       - name: Save Ccache cache
