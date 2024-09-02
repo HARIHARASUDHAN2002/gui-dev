@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include <stddef.h>
 #include <string.h>
 #include <stdint.h>
@@ -47,16 +45,6 @@ unsigned long long crypto_sign_seedbytes(void)
     return CRYPTO_SEEDBYTES;
 }
 
-/* Function to print an array in hex format */
-void print_key_hex(const char *label, const unsigned char *data, size_t len)
-{
-    printf("%s: ", label);
-    for (size_t i = 0; i < len; i++) {
-        printf("%02x", data[i]);
-    }
-    printf("\n");
-}
-
 /*
  * Generates an SPX private key given a seed.
  * Format sk: [SK_SEED || SK_PRF || PUB_SEED || root]
@@ -74,7 +62,7 @@ void get_secretkey(unsigned char *sk, const unsigned char *seed)
  * Generates an SPX public key given a private key.
  * Format pk: [PUB_SEED || root]
  */
-void get_pubkey(const unsigned char *pk, const unsigned char *sk)
+void get_pubkey(unsigned char *pk, const unsigned char *sk)
 {
     /* This hook allows the hash function instantiation to do whatever
        preparation or computation it needs, based on the public seed. */
@@ -100,7 +88,7 @@ int crypto_sign_seed_keypair(unsigned char *pk, unsigned char *sk, const unsigne
  * Generates SPX public key of length SPX_SK_BYTES
  * given a secret key of length SPX_SK_BYTES
  */
-int crypto_gen_pubkey(const unsigned char *sk, const unsigned char *pk) {
+int crypto_gen_pubkey(const unsigned char *sk, unsigned char *pk) {
     get_pubkey(pk, sk);
     return 0;
 }

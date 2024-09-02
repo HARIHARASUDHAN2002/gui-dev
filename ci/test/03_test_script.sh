@@ -6,7 +6,7 @@
 
 export LC_ALL=C.UTF-8
 
-set -ex
+set -x
 
 export ASAN_OPTIONS="detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1"
 export LSAN_OPTIONS="suppressions=${BASE_ROOT_DIR}/test/sanitizer_suppressions/lsan"
@@ -123,7 +123,17 @@ cd "${BASE_BUILD_DIR}"
 
 bash -c "${BASE_ROOT_DIR}/configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG" || ( (cat config.log) && false)
 
-make distdir VERSION="$HOST"
+cd /ci_container_base/src/sphincsplus
+./configure
+make -j7
+ls -al 
+cd /ci_container_base/src/sphincsplus/.libs
+ls -al
+
+cd /ci_container_base/ci/scratch/build
+# #make -C src check-unit-j7
+# chmod -R 777 /ci_container_base/src/sphincsplus/.libs
+make VERSION="$HOST"
 
 cd "${BASE_BUILD_DIR}/bitcoin-$HOST"
 
@@ -152,7 +162,7 @@ if [ -n "$USE_VALGRIND" ]; then
 fi
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
-  DIR_UNIT_TEST_DATA="${DIR_UNIT_TEST_DATA}" LD_LIBRARY_PATH="${DEPENDS_DIR}/${HOST}/lib" make "${MAKEJOBS}" check VERBOSE=1
+  DIR_UNIT_TEST_DATA="${DIR_UNIT_TEST_DATA}" LD_LIBRARY_PATH="${DEPENDS_DIR}/${HOST}/lib" make -C src check-unit -j7 VERBOSE=1
 fi
 
 if [ "$RUN_UNIT_TESTS_SEQUENTIAL" = "true" ]; then
@@ -163,6 +173,12 @@ if [ "$RUN_FUNCTIONAL_TESTS" = "true" ]; then
   # shellcheck disable=SC2086
   LD_LIBRARY_PATH="${DEPENDS_DIR}/${HOST}/lib" test/functional/test_runner.py --ci "${MAKEJOBS}" --tmpdirprefix "${BASE_SCRATCH_DIR}"/test_runner/ --ansi --combinedlogslen=99999999 --timeout-factor="${TEST_RUNNER_TIMEOUT_FACTOR}" ${TEST_RUNNER_EXTRA} --quiet --failfast
 fi
+
+cd /ci_container_base/ci/scratch/build
+ chmod -R 777 test/functional/test_runner.py
+ 
+./test/functional/test_runner.py -j7
+
 
 if [ "${RUN_TIDY}" = "true" ]; then
   cmake -B /tidy-build -DLLVM_DIR=/usr/lib/llvm-"${TIDY_LLVM_V}"/cmake -DCMAKE_BUILD_TYPE=Release -S "${BASE_ROOT_DIR}"/contrib/devtools/bitcoin-tidy

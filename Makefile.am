@@ -173,9 +173,6 @@ LCOV_FILTER_PATTERN = \
 	-p "src/secp256k1" \
 	-p "depends"
 
-# Use the CXXFLAGS from configure.ac
-AM_CXXFLAGS = @CXXFLAGS@
-
 DIR_FUZZ_SEED_CORPUS ?= qa-assets/fuzz_seed_corpus
 
 $(COV_TOOL_WRAPPER):

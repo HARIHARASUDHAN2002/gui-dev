@@ -5,7 +5,6 @@
 extern "C"{
 #endif
 
-#include <string.h>
 #include <stddef.h>
 #include <stdint.h>
 
@@ -89,24 +88,19 @@ void get_secretkey(unsigned char *sk, const unsigned char *seed);
  * Derives the public key from a given secret key.
  * Format pk: [PUB_SEED || root]
  */
-void get_pubkey(const unsigned char *pk, const unsigned char *sk);
+void get_pubkey(unsigned char *pk, const unsigned char *sk);
 
 /**
  * Generates a SPHINCS+ public key given a secret key.
  * Format pk: [PUB_SEED || root]
  */
-int crypto_gen_pubkey(const unsigned char *sk, const unsigned char *pk);
+int crypto_gen_pubkey(const unsigned char *sk, unsigned char *pk);
 
 /**
  * Generates a SPHINCS+ private key.
  * Format sk: [SK_SEED || SK_PRF || PUB_SEED || root]
  */
 int crypto_gen_privatekey(unsigned char *sk);
-
-/**
- * Prints the key in hexadecimal format.
- */
-void print_key_hex(const char *label, const unsigned char *data, size_t len);
 
 #ifdef __cplusplus
 }

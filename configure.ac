@@ -1719,10 +1719,6 @@ fi
 ac_configure_args="${ac_configure_args} --disable-shared --with-pic --with-ecmult-gen-kb=86 --enable-benchmark=no --enable-module-recovery --disable-module-ecdh"
 AC_CONFIG_SUBDIRS([src/sphincsplus src/secp256k1])
 
-# Always enable SPHINCS+
-AC_DEFINE([USE_SPHINCSPLUS], [1], [Define to enable SPHINCS+ support])
-CXXFLAGS="$CXXFLAGS -DUSE_SPHINCSPLUS"
-
 AC_OUTPUT
 
 dnl Replace the BUILDDIR path with the correct Windows path if compiling on Native Windows
