@@ -115,6 +115,7 @@ BITCOIN_CONFIG_ALL="${BITCOIN_CONFIG_ALL} --enable-external-signer --prefix=$BAS
 if [ -n "$CONFIG_SHELL" ]; then
   "$CONFIG_SHELL" -c "./autogen.sh"
 else
+  chmod +x ./autogen.sh
   ./autogen.sh
 fi
 
